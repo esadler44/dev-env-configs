@@ -1,11 +1,15 @@
 #!/opt/homebrew/bin/fish
 
 echo "Installing dotfiles..."
+rm -r ~/.config/yabai
+rm -r ~/.config/skhd
+rm -r ~/.config/sketchybar
 cp -r ./.config/* ~/.config/
 
 echo "Restarting window management..."
 yabai --restart-service
 skhd -r
+sketchybar --reload
 
 echo "Fetching Tokyonight theme..."
 mkdir downloads
