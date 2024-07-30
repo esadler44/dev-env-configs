@@ -1,5 +1,19 @@
 #!/opt/homebrew/bin/fish
 
+echo "Installing Homebrew..."
+if type -q brew
+    echo "Homebrew already installed"
+else
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # Add brew to PATH
+    /opt/homebrew/bin/brew shellenv >> ~/.config/fish/config.fish
+end
+
+echo "Installing dependencies..."
+brew install yabai skhd fish neovim
+
+source ~/.config/fish/config.fish
+
 echo "Installing dotfiles..."
 rm -r ~/.config/yabai
 rm -r ~/.config/skhd
@@ -22,7 +36,7 @@ echo "Applying Tokyonight theme..."
 fish_config theme choose Tokyonight_Night
 yes | fish_config theme save
 
-echo "Make sure to setup the folloing manually:"
+echo "Make sure to setup the following manually:"
 echo "Set the iTerm2 color scheme to Tokyonight Night as well"
 echo "Go to Profiles > Colors > Color Presets > Import... and select the Tokyonight Night.itermcolors file"
 echo "Then set the preset to Tokyonight Night"
