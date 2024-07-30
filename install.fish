@@ -28,5 +28,5 @@ echo "Go to Profiles > Colors > Color Presets > Import... and select the Tokyoni
 echo "Then set the preset to Tokyonight Night"
 echo "Go to the Window tab and set the Transparency to 40%"
 echo "Keep background colors opaque"
-echo "Blur on, Radius 25"
+echo "Blur on, Radius 24"
 echo "Style: No Title Bar"
