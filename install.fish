@@ -9,8 +9,25 @@ else
     /opt/homebrew/bin/brew shellenv >> ~/.config/fish/config.fish
 end
 
-echo "Installing dependencies..."
-brew install yabai skhd fish neovim
+echo "Installing Yabai..."
+if type -q yabai
+    echo "Yabai already installed"
+else
+    brew install koekeishiya/formulae/yabai
+    brew install yabai
+    brew install koekeishiya/formulae/skhd
+    brew install skhd
+end
+
+if type -q sketchybar
+    echo "Sketchybar already installed"
+else
+    echo "Installing Sketchybar..."
+    if not type -q; brew install jq; end
+    brew tap FelixKratz/formulae
+    brew install sketchybar
+    echo "brew services start sketchybar" >> ~/.config/fish/config.fish
+end
 
 source ~/.config/fish/config.fish
 
